@@ -1,0 +1,82 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - File Upload Component Overrides
+ * ============================================================================
+ *
+ * PERSONALIZACIÓN:
+ * - Botón "Seleccione un archivo" fuera del dropzone
+ * - Botón con fill amarillo (#FFE16F) y texto verde
+ * - Dropzone sin el botón interno
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-file-upload-dropzone {
+  /* El dropzone ya no debe contener el botón */
+  --sb-ui-file-upload-dropzone-border-color: #9b9b9b;
+  --sb-ui-file-upload-dropzone-border-style: dashed;
+  --sb-ui-file-upload-dropzone-border-width: 1px;
+  --sb-ui-file-upload-dropzone-border-radius: 8px;
+  --sb-ui-file-upload-dropzone-padding-block: 48px;
+  --sb-ui-file-upload-dropzone-padding-inline: 48px;
+  padding: 20px;
+}
+
+/* ============================================================================
+   2. BOTÓN SELECCIONAR ARCHIVO (fuera del dropzone)
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-file-upload__select-button {
+  /* Botón amarillo con texto verde */
+  background-color: #FFE16F !important;
+  color: #038450 !important;
+  border: 2px solid #FFE16F !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  padding-inline: 24px !important;
+  padding-block: 12px !important;
+  border-radius: 50px !important;
+  min-inline-size: 200px !important;
+  display: block !important;
+  margin-inline: auto !important;
+  margin-block-start: 16px !important;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-file-upload__select-button:hover {
+  background-color: #FFD54F !important;
+  border-color: #FFD54F !important;
+  color: #038450 !important;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-file-upload__select-button:active {
+  background-color: #FFC107 !important;
+  border-color: #FFC107 !important;
+  color: #038450 !important;
+}
+
+/* ============================================================================
+   3. OCULTAR BOTÓN DENTRO DEL DROPZONE (si existe)
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-file-upload-dropzone .sb-ui-button {
+  display: none !important;
+}
+
+/* ============================================================================
+   4. AJUSTAR ESPACIADO Y COLOR DEL TEXTO DE AYUDA
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-file-upload__help {
+  margin-block-start: 8px;
+  color: #5B5B5B;
+}
+
+/* ============================================================================
+   5. AJUSTAR PADDING DE LOS CONTENEDORES DE ARCHIVOS SUBIDOS
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-file-upload {
+  --sb-ui-file-upload-padding-block: 10px;
+  --sb-ui-file-upload-padding-inline: 10px;
+  --sb-ui-file-upload-gap: 16px;
+  padding: 10px !important;
+}
+

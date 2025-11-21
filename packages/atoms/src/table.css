@@ -1,0 +1,350 @@
+/**
+ * Table Component - Seguros Bolivar UI Design System
+ * - CSS Nesting nativo con &
+ * - @layer para control de cascada
+ * - Logical Properties (RTL/LTR)
+ * - clamp() para responsive fluido
+ *
+ * Uso:
+ * <div class="sb-ui-table-container">
+ *   <table class="sb-ui-table sb-ui-table--striped sb-ui-table--hover">
+ *     <thead>
+ *       <tr>
+ *         <th>Header</th>
+ *       </tr>
+ *     </thead>
+ *     <tbody>
+ *       <tr>
+ *         <td>Data</td>
+ *       </tr>
+ *     </tbody>
+ *   </table>
+ * </div>
+ *
+ * Variantes: striped, bordered, hover, compact, responsive
+ */
+
+@layer reset, tokens, base, variants, modifiers, states, utilities;
+
+/* ========================================
+   RESET LAYER
+   ======================================== */
+@layer reset {
+  .sb-ui-table-container,
+  .sb-ui-table,
+  .sb-ui-table thead,
+  .sb-ui-table tbody,
+  .sb-ui-table tfoot,
+  .sb-ui-table tr,
+  .sb-ui-table th,
+  .sb-ui-table td {
+    box-sizing: border-box;
+  }
+}
+
+/* ========================================
+   TOKENS LAYER - Variables CSS
+   ======================================== */
+@layer tokens {
+  .sb-ui-table {
+    /* Colors */
+    --sb-ui-table-bg: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-table-text: var(--sb-ui-color-grayscale-D300, #404040);
+    --sb-ui-table-border: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    
+    /* Header */
+    --sb-ui-table-header-bg: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-table-header-text: var(--sb-ui-color-grayscale-D300, #404040);
+    --sb-ui-table-header-font-weight: 600;
+    
+    /* Row States */
+    --sb-ui-table-row-hover-bg: var(--sb-ui-color-grayscale-L400, #fafafa);
+    --sb-ui-table-row-selected-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+    --sb-ui-table-row-striped-bg: var(--sb-ui-color-grayscale-L400, #fafafa);
+    
+    /* Spacing */
+    --sb-ui-table-padding-block: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+    --sb-ui-table-padding-inline: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    
+    /* Typography */
+    --sb-ui-table-font-family: var(--sb-ui-typography-fontFamily, 'Roboto', sans-serif);
+    --sb-ui-table-font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --sb-ui-table-line-height: 1.5;
+    
+    /* Border */
+    --sb-ui-table-border-width: 1px;
+    --sb-ui-table-border-radius: 8px;
+    
+    /* Transition */
+    --sb-ui-table-transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Pagination */
+  .sb-ui-table-pagination {
+    --sb-ui-pagination-gap: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-pagination-padding-block: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    --sb-ui-pagination-btn-size: clamp(32px, 8vw, 40px);
+    --sb-ui-pagination-btn-bg: var(--sb-ui-color-grayscale-white, #fff);
+    --sb-ui-pagination-btn-border: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    --sb-ui-pagination-btn-text: var(--sb-ui-color-grayscale-D300, #404040);
+    --sb-ui-pagination-btn-active-bg: var(--sb-ui-color-secondary-base, #ffe16f);
+    --sb-ui-pagination-btn-active-text: var(--sb-ui-color-primary-base, #038450);
+    --sb-ui-pagination-btn-hover-bg: var(--sb-ui-color-grayscale-L400, #fafafa);
+    --sb-ui-pagination-btn-disabled-bg: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    --sb-ui-pagination-btn-disabled-text: var(--sb-ui-color-grayscale-base, #9b9b9b);
+  }
+}
+
+/* ========================================
+   BASE LAYER - Estilos base
+   ======================================== */
+@layer base {
+  /* Container */
+  .sb-ui-table-container {
+    inline-size: 100%;
+    overflow-x: auto;
+    position: relative;
+  }
+
+  /* Table */
+  .sb-ui-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-family: var(--sb-ui-table-font-family);
+    font-size: var(--sb-ui-table-font-size);
+    line-height: var(--sb-ui-table-line-height);
+    color: var(--sb-ui-table-text);
+    background-color: var(--sb-ui-table-bg);
+    border-radius: var(--sb-ui-table-border-radius);
+  }
+
+  /* Header */
+  .sb-ui-table thead th {
+    padding-block: var(--sb-ui-table-padding-block);
+    padding-inline: var(--sb-ui-table-padding-inline);
+    background-color: var(--sb-ui-table-header-bg);
+    color: var(--sb-ui-table-header-text);
+    font-weight: var(--sb-ui-table-header-font-weight);
+    text-align: start;
+    border-block-end: var(--sb-ui-table-border-width) solid var(--sb-ui-table-border);
+    white-space: nowrap;
+  }
+
+  /* Body Cells */
+  .sb-ui-table tbody td {
+    padding-block: var(--sb-ui-table-padding-block);
+    padding-inline: var(--sb-ui-table-padding-inline);
+    border-block-end: var(--sb-ui-table-border-width) solid var(--sb-ui-table-border);
+    transition: var(--sb-ui-table-transition);
+  }
+
+  /* Footer */
+  .sb-ui-table tfoot td {
+    padding-block: var(--sb-ui-table-padding-block);
+    padding-inline: var(--sb-ui-table-padding-inline);
+    font-weight: var(--sb-ui-table-header-font-weight);
+    border-block-start: var(--sb-ui-table-border-width) solid var(--sb-ui-table-border);
+  }
+
+  /* Pagination */
+  .sb-ui-table-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sb-ui-pagination-gap);
+    padding-block: var(--sb-ui-pagination-padding-block);
+    flex-wrap: wrap;
+  }
+
+  .sb-ui-table-pagination__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--sb-ui-pagination-btn-size);
+    min-block-size: var(--sb-ui-pagination-btn-size);
+    padding-inline: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    padding-block: clamp(0.25rem, 0.2rem + 0.2vw, 0.5rem);
+    background-color: var(--sb-ui-pagination-btn-bg);
+    color: var(--sb-ui-pagination-btn-text);
+    border: var(--sb-ui-table-border-width) solid var(--sb-ui-pagination-btn-border);
+    border-radius: 50%;
+    font-family: var(--sb-ui-table-font-family);
+    font-size: var(--sb-ui-table-font-size);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--sb-ui-table-transition);
+    user-select: none;
+
+    &:hover:not(:disabled) {
+      background-color: var(--sb-ui-pagination-btn-hover-bg);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      background-color: var(--sb-ui-pagination-btn-disabled-bg);
+      color: var(--sb-ui-pagination-btn-disabled-text);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &--active {
+      background-color: var(--sb-ui-pagination-btn-active-bg);
+      color: var(--sb-ui-pagination-btn-active-text);
+      font-weight: 700;
+      border-color: var(--sb-ui-pagination-btn-active-bg);
+    }
+  }
+
+  .sb-ui-table-pagination__select {
+    padding-inline: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    padding-block: clamp(0.25rem, 0.2rem + 0.2vw, 0.5rem);
+    border: var(--sb-ui-table-border-width) solid var(--sb-ui-pagination-btn-border);
+    border-radius: 4px;
+    font-family: var(--sb-ui-table-font-family);
+    font-size: var(--sb-ui-table-font-size);
+    background-color: var(--sb-ui-pagination-btn-bg);
+    color: var(--sb-ui-pagination-btn-text);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--sb-ui-color-secondary-L100);
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* ========================================
+   VARIANTS LAYER
+   ======================================== */
+@layer variants {
+  /* Striped */
+  .sb-ui-table--striped tbody tr:nth-child(even) {
+    background-color: var(--sb-ui-table-row-striped-bg);
+  }
+
+  /* Bordered */
+  .sb-ui-table--bordered {
+    border: var(--sb-ui-table-border-width) solid var(--sb-ui-table-border);
+    border-radius: var(--sb-ui-table-border-radius);
+
+    & thead th,
+    & tbody td,
+    & tfoot td {
+      border-inline-end: var(--sb-ui-table-border-width) solid var(--sb-ui-table-border);
+
+      &:last-child {
+        border-inline-end: none;
+      }
+    }
+  }
+
+  /* Hover */
+  .sb-ui-table--hover tbody tr:hover {
+    background-color: var(--sb-ui-table-row-hover-bg);
+    cursor: pointer;
+  }
+
+  /* Compact */
+  .sb-ui-table--compact {
+    --sb-ui-table-padding-block: clamp(0.5rem, 0.4rem + 0.3vw, 0.75rem);
+    --sb-ui-table-padding-inline: clamp(0.75rem, 0.6rem + 0.5vw, 1rem);
+    --sb-ui-table-font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  }
+}
+
+/* ========================================
+   MODIFIERS LAYER
+   ======================================== */
+@layer modifiers {
+  /* Selected Row */
+  .sb-ui-table tbody tr.sb-ui-table__row--selected {
+    background-color: var(--sb-ui-table-row-selected-bg);
+  }
+
+  /* Text Alignment */
+  .sb-ui-table__cell--start {
+    text-align: start;
+  }
+
+  .sb-ui-table__cell--center {
+    text-align: center;
+  }
+
+  .sb-ui-table__cell--end {
+    text-align: end;
+  }
+
+  /* Sticky Header */
+  .sb-ui-table--sticky thead th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+  }
+}
+
+/* ========================================
+   STATES LAYER
+   ======================================== */
+@layer states {
+  /* Loading */
+  .sb-ui-table--loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  /* Empty */
+  .sb-ui-table__empty {
+    padding-block: clamp(2rem, 1.5rem + 2vw, 4rem);
+    text-align: center;
+    color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    font-style: italic;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER
+   ======================================== */
+@layer utilities {
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .sb-ui-table {
+      --sb-ui-table-border-width: 2px;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .sb-ui-table,
+    .sb-ui-table-pagination__button {
+      --sb-ui-table-transition: none;
+      animation: none;
+      transition: none;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sb-ui-table-container {
+      border-radius: 0;
+    }
+
+    .sb-ui-table {
+      font-size: 0.875rem;
+    }
+
+    .sb-ui-table thead th,
+    .sb-ui-table tbody td {
+      padding-block: 0.5rem;
+      padding-inline: 0.75rem;
+    }
+  }
+}
+

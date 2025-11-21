@@ -1,0 +1,291 @@
+/**
+ * ============================================================================
+ * Seguros Bolívar - Table Component Overrides
+ * ============================================================================
+ *
+ * PERSONALIZACIÓN:
+ * - Header con fondo gris claro y texto gris medio
+ * - Inputs y checkboxes estilizados
+ * - Paginación con botones amarillos circulares
+ * - Hover verde claro en filas
+ * - Bordes y espaciado específicos de la marca
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. CONFIGURACIÓN GLOBAL DE LA TABLA - Tokens Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table {
+  --sb-ui-table-border: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  --sb-ui-table-border-radius: 8px;
+  --sb-ui-table-font-size: 14px;
+  
+  /* Header */
+  --sb-ui-table-header-bg: var(--sb-ui-color-grayscale-L400, #fafafa);
+  --sb-ui-table-header-text: var(--sb-ui-color-grayscale-D100, #5b5b5b);
+  --sb-ui-table-header-font-weight: 400;
+  
+  /* Row States */
+  --sb-ui-table-row-hover-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+  --sb-ui-table-row-selected-bg: var(--sb-ui-color-primary-L400, #f2f9f6);
+  --sb-ui-table-row-striped-bg: var(--sb-ui-color-grayscale-L400, #fafafa);
+  
+  /* Text */
+  --sb-ui-table-text: var(--sb-ui-color-grayscale-D300, #1b1b1b);
+  
+  /* Spacing */
+  --sb-ui-table-padding-block: 16px;
+  --sb-ui-table-padding-inline: 16px;
+  
+  /* Bordes más definidos */
+  border: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  border-radius: 8px;
+}
+
+/* ============================================================================
+   2. ESTILOS DEL HEADER - Tokens Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table thead {
+  background-color: var(--sb-ui-color-grayscale-L400, #fafafa);
+  border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table thead th {
+  font-size: 14px;
+  color: var(--sb-ui-color-grayscale-D100, #5b5b5b);
+  font-weight: 400;
+  padding-block: 16px;
+  padding-inline: 16px;
+  text-align: start;
+  background-color: var(--sb-ui-color-grayscale-L400, #fafafa);
+  border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  position: relative;
+}
+
+/* Redondear esquinas superiores del header */
+[data-brand='seguros-bolivar'] .sb-ui-table thead tr:first-child th:first-child {
+  border-start-start-radius: 8px;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table thead tr:first-child th:last-child {
+  border-start-end-radius: 8px;
+}
+
+/* Redondear esquinas inferiores de la última fila */
+[data-brand='seguros-bolivar'] .sb-ui-table tbody tr:last-child td:first-child {
+  border-end-start-radius: 8px;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table tbody tr:last-child td:last-child {
+  border-end-end-radius: 8px;
+}
+
+/* Iconos de ordenamiento en headers (opcional) */
+[data-brand='seguros-bolivar'] .sb-ui-table thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table thead th.sortable::after {
+  content: '⇅';
+  margin-left: 8px;
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table thead th.sortable:hover::after {
+  opacity: 0.6;
+}
+
+/* ============================================================================
+   3. ESTILOS DE CELDAS - Tokens Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table tbody td {
+  font-size: 14px;
+  color: var(--sb-ui-color-grayscale-D300, #1b1b1b);
+  padding-block: 16px;
+  padding-inline: 16px;
+  border-bottom: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  background-color: var(--sb-ui-color-grayscale-white, #fff);
+}
+
+/* ============================================================================
+   4. HOVER Y ESTADOS DE FILA - Colores Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table tbody tr:hover {
+  background-color: var(--sb-ui-color-primary-L400, #f2f9f6);
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table tbody tr:hover td {
+  background-color: var(--sb-ui-color-primary-L400, #f2f9f6);
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table tbody tr.sb-ui-table__row--selected td {
+  background-color: var(--sb-ui-color-primary-L400, #f2f9f6);
+}
+
+/* ============================================================================
+   5. INPUTS DENTRO DE LA TABLA - Colores Seguros Bolívar
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="text"],
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="number"] {
+  border: 1px solid var(--sb-ui-color-grayscale-L100, #d0d0d0);
+  border-radius: 4px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  font-size: 14px;
+  color: var(--sb-ui-color-grayscale-D300, #1b1b1b);
+  inline-size: 100%;
+  max-inline-size: 200px;
+  box-sizing: border-box;
+  background-color: var(--sb-ui-color-grayscale-white, #fff);
+  transition: border-color 0.2s ease;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="text"]:hover,
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="number"]:hover {
+  border-color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="text"]:focus,
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="number"]:focus {
+  outline: none;
+  border-color: var(--sb-ui-color-primary-base, #038450);
+  border-width: 2px;
+  box-shadow: 0 0 0 1px rgba(3, 132, 80, 0.1);
+}
+
+/* ============================================================================
+   6. CHECKBOXES DENTRO DE LA TABLA
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="checkbox"] {
+  inline-size: 20px;
+  block-size: 20px;
+  cursor: pointer;
+  accent-color: #1a73e8;
+  border: 2px solid #d0d0d0;
+  border-radius: 2px;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="checkbox"]:hover {
+  border-color: #9b9b9b;
+}
+
+[data-brand='seguros-bolivar'] .sb-ui-table input[type="checkbox"]:checked {
+  accent-color: #1a73e8;
+}
+
+/* ============================================================================
+   7. PAGINACIÓN - Centrada con botones amarillos circulares
+   ============================================================================ */
+@layer brand-overrides {
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination {
+    padding-block: 24px;
+    padding-inline: 16px;
+    gap: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__button {
+    --sb-ui-pagination-btn-bg: #fff;
+    --sb-ui-pagination-btn-border: #d0d0d0;
+    --sb-ui-pagination-btn-text: #5b5b5b;
+    --sb-ui-pagination-btn-hover-bg: #fffcf0;
+    border-radius: 50%;
+    font-weight: 400;
+    min-inline-size: 40px;
+    min-block-size: 40px;
+    inline-size: 40px;
+    block-size: 40px;
+    border: 1px solid #d0d0d0;
+    background-color: #fff;
+    color: #5b5b5b;
+    font-size: 14px;
+  }
+
+  /* Botón activo - amarillo Seguros Bolívar */
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__button--active {
+    background-color: var(--sb-ui-color-secondary-base, #ffe16f) !important;
+    color: var(--sb-ui-color-primary-base, #038450) !important;
+    border-color: var(--sb-ui-color-secondary-base, #ffe16f) !important;
+    font-weight: 600;
+  }
+
+  /* Hover - fondo verde claro */
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__button:hover:not(:disabled):not(.sb-ui-table-pagination__button--active) {
+    background-color: var(--sb-ui-color-primary-L400, #f2f9f6);
+    border-color: var(--sb-ui-color-primary-base, #038450);
+  }
+
+  /* Disabled */
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__button:disabled {
+    background-color: var(--sb-ui-color-grayscale-L300, #f5f5f5);
+    color: var(--sb-ui-color-grayscale-base, #9b9b9b);
+    border-color: var(--sb-ui-color-grayscale-L200, #e1e1e1);
+    cursor: not-allowed;
+  }
+
+  /* Select de paginación */
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__select {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding-block: 8px;
+    padding-inline: 12px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #1b1b1b;
+    min-inline-size: 70px;
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__select:hover {
+    border-color: var(--sb-ui-color-primary-base, #038450);
+  }
+
+  [data-brand='seguros-bolivar'] .sb-ui-table-pagination__select:focus {
+    outline: none;
+    border-color: var(--sb-ui-color-primary-base, #038450);
+    border-width: 2px;
+  }
+}
+
+/* ============================================================================
+   8. CONTAINER DE LA TABLA - Centrado y Redondeado
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .sb-ui-table-container {
+  border: 1px solid var(--sb-ui-color-grayscale-L200, #e1e1e1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+/* ============================================================================
+   9. ALINEACIÓN Y CENTRADO
+   ============================================================================ */
+[data-brand='seguros-bolivar'] .table-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  inline-size: 100%;
+}
+
+[data-brand='seguros-bolivar'] .section {
+  text-align: center;
+}
+
+[data-brand='seguros-bolivar'] .section h2 {
+  text-align: center;
+  color: var(--sb-ui-color-primary-base, #038450);
+  border-bottom-color: var(--sb-ui-color-primary-L300, #cce9dd);
+}
+
+[data-brand='seguros-bolivar'] .section p {
+  text-align: center;
+  color: var(--sb-ui-color-grayscale-D100, #5b5b5b);
+}
+
+[data-brand='seguros-bolivar'] .section .table-wrapper {
+  text-align: initial;
+}
+

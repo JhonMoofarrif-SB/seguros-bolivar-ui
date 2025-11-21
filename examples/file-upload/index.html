@@ -240,7 +240,7 @@
                     style="display: none;"
                   />
                   
-                  <!-- Dropzone -->
+                  <!-- Dropzone (sin botón adentro) -->
                   <div class="sb-ui-file-upload-dropzone" id="dropzone">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--sb-ui-color-feedback-success-base)">
                       <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M12,19L8,15H10.5V12H13.5V15H16L12,19Z"/>
@@ -248,13 +248,15 @@
                     <p class="sb-ui-file-upload-dropzone__text">
                       Arrastre y suelte sus documentos aquí.
                     </p>
-                    <button class="sb-ui-button sb-ui-button--secondary" type="button" id="selectFileBtn">
-                      Seleccione un archivo
-                    </button>
                     <p class="sb-ui-file-upload__help">
-                      El peso máximo por archivo es 20 MB. Formatos permitidos: jpg, png, jpeg.
+                      El peso máximo por archivo es 20 MB. Formatos permitidos: .jpg, .png, .jpeg.
                     </p>
                   </div>
+
+                  <!-- Botón FUERA del dropzone -->
+                  <button class="sb-ui-button sb-ui-button--primary sb-ui-file-upload__select-button" type="button" id="selectFileBtn">
+                    Seleccione un archivo
+                  </button>
 
                   <!-- File items container -->
                   <div id="fileItemsContainer"></div>
@@ -283,13 +285,13 @@
                     <p class="sb-ui-file-upload-dropzone__text">
                       Arrastre y suelte sus documentos aquí.
                     </p>
-                    <button class="sb-ui-button sb-ui-button--secondary" type="button">
-                      Seleccione un archivo
-                    </button>
                     <p class="sb-ui-file-upload__help">
-                      El peso máximo por archivo es 20 MB. Formatos permitidos: jpg, png, jpeg.
+                      El peso máximo por archivo es 20 MB. Formatos permitidos: .jpg, .png, .jpeg.
                     </p>
                   </div>
+                  <button class="sb-ui-button sb-ui-button--primary sb-ui-file-upload__select-button" type="button">
+                    Seleccione un archivo
+                  </button>
                 </div>
               </div>
             </div>
@@ -298,13 +300,21 @@
               <div class="demo-label">Mobile - Compact</div>
               <div class="sb-ui-file-upload-wrapper" style="max-width: 400px">
                 <label class="sb-ui-file-upload__label">Documento</label>
-                <div class="sb-ui-file-upload-container" style="background: var(--sb-ui-color-grayscale-L400); padding: 1rem; border-radius: 4px;">
-                  <button class="sb-ui-button sb-ui-button--secondary" type="button" style="width: 100%">
+                <div class="sb-ui-file-upload-container">
+                  <div class="sb-ui-file-upload-dropzone">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--sb-ui-color-feedback-success-base)">
+                      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M12,19L8,15H10.5V12H13.5V15H16L12,19Z"/>
+                    </svg>
+                    <p class="sb-ui-file-upload-dropzone__text" style="font-size: 0.875rem;">
+                      Arrastre sus documentos aquí.
+                    </p>
+                    <p class="sb-ui-file-upload__help" style="font-size: 0.75rem;">
+                      Máx. 20 MB. Formatos: .jpg, .png, .jpeg.
+                    </p>
+                  </div>
+                  <button class="sb-ui-button sb-ui-button--primary sb-ui-button--small sb-ui-file-upload__select-button" type="button" style="width: 100%">
                     Seleccione un archivo
                   </button>
-                  <p class="sb-ui-file-upload__help" style="margin-top: 0.5rem; text-align: center;">
-                    El peso máximo por archivo es 20 MB. Formatos permitidos: jpg, png, jpeg.
-                  </p>
                 </div>
               </div>
             </div>

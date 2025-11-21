@@ -49,6 +49,7 @@
     --sb-ui-accordion-bg-active: var(--sb-ui-color-grayscale-L200, #e1e1e1);
     --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400, #fafafa);
     --sb-ui-accordion-bg-disabled-hover: var(--sb-ui-color-grayscale-L400, #fafafa);
+    --sb-ui-accordion-bg-expanded: var(--sb-ui-color-grayscale-L300, #f5f5f5);
 
     --sb-ui-accordion-text-color: var(--sb-ui-color-grayscale-D200, #5b5b5b);
     --sb-ui-accordion-text-hover: var(--sb-ui-color-grayscale-D200, #5b5b5b);
@@ -156,6 +157,9 @@
     line-height: var(--sb-ui-accordion-line-height);
     color: var(--sb-ui-accordion-text-color);
 
+    /* Appearance */
+    border-radius: var(--sb-ui-accordion-border-radius);
+
     /* Interaction */
     cursor: pointer;
     user-select: none;
@@ -223,6 +227,7 @@
 
     /* Appearance */
     font-size: var(--sb-ui-accordion-icon-size);
+    font-weight: 300;
 
     /* Animation */
     transition: transform 0.3s ease;
@@ -251,8 +256,16 @@
 
   /* Expanded state */
   .sb-ui-accordion[open] {
+    border-color: var(--sb-ui-accordion-border-expanded, var(--sb-ui-accordion-border-color));
+
+    & .sb-ui-accordion__header {
+      background-color: var(--sb-ui-accordion-bg-expanded, #F2F9F6);
+      color: var(--sb-ui-accordion-text-expanded, var(--sb-ui-accordion-text-color));
+    }
+
     & .sb-ui-accordion__icon-end {
       transform: rotate(180deg);
+      color: var(--sb-ui-accordion-text-expanded, var(--sb-ui-accordion-text-color));
     }
 
     & .sb-ui-accordion__content {

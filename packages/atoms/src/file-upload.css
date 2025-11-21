@@ -108,15 +108,15 @@
     --sb-ui-file-upload-border-color: var(--sb-ui-color-grayscale-L200, #e0e0e0);
     --sb-ui-file-upload-border-width: 1px;
     --sb-ui-file-upload-border-radius: 8px;
-    --sb-ui-file-upload-padding-block: 24px;
-    --sb-ui-file-upload-padding-inline: 24px;
-    --sb-ui-file-upload-gap: 16px;
+    --sb-ui-file-upload-padding-block: 1.5rem;
+    --sb-ui-file-upload-padding-inline: 1.5rem;
+    --sb-ui-file-upload-gap: 1.5rem;
 
     /* Icon Container - Card gris */
     --sb-ui-file-upload-icon-size: 40px;
     --sb-ui-file-upload-icon-color: var(--sb-ui-color-feedback-success-base);
     --sb-ui-file-upload-icon-bg: var(--sb-ui-color-grayscale-L300, #f5f5f5);
-    --sb-ui-file-upload-icon-padding: 12px;
+    --sb-ui-file-upload-icon-padding: 0.75rem;
 
     /* File Name */
     --sb-ui-file-upload-filename-color: var(--sb-ui-color-grayscale-black);
@@ -195,6 +195,7 @@
     cursor: pointer;
     position: relative;
     inline-size: 100%;
+    padding: 20px !important;
 
     &:hover {
       background: var(--sb-ui-file-upload-dropzone-hover-bg);
@@ -269,7 +270,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 1rem;
     min-inline-size: 0;
   }
 
@@ -437,11 +438,9 @@
   /* Mobile styles */
   @media (max-width: 640px) {
     .sb-ui-file-upload {
-      --sb-ui-file-upload-padding-block: 20px;
-      --sb-ui-file-upload-padding-inline: 20px;
-      --sb-ui-file-upload-gap: 12px;
-      --sb-ui-file-upload-icon-size: 36px;
-      --sb-ui-file-upload-icon-padding: 10px;
+      --sb-ui-file-upload-padding-block: 0.875rem;
+      --sb-ui-file-upload-padding-inline: 0.875rem;
+      --sb-ui-file-upload-icon-size: 32px;
     }
 
     .sb-ui-file-upload__filename {

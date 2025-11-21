@@ -139,6 +139,56 @@
         }
       }
 
+      /* Modal Button Styles */
+      sb-ui-modal [slot="footer"] .sb-ui-button {
+        min-inline-size: 100px;
+        font-weight: 700;
+        font-size: 14px;
+        padding-inline: 16px;
+        padding-block: 8px;
+      }
+
+      /* Botón izquierdo "Cerrar" - Stroke verde */
+      sb-ui-modal [slot="footer"] .sb-ui-button--tertiary,
+      sb-ui-modal [slot="footer"] .sb-ui-button--secondary {
+        background-color: transparent !important;
+        color: #038450 !important;
+        border: 2px solid #038450 !important;
+      }
+
+      sb-ui-modal [slot="footer"] .sb-ui-button--tertiary:hover,
+      sb-ui-modal [slot="footer"] .sb-ui-button--secondary:hover {
+        background-color: #F2F9F6 !important;
+        color: #038450 !important;
+        border-color: #038450 !important;
+      }
+
+      sb-ui-modal [slot="footer"] .sb-ui-button--tertiary:active,
+      sb-ui-modal [slot="footer"] .sb-ui-button--secondary:active {
+        background-color: #CCE9DD !important;
+        color: #038450 !important;
+        border-color: #038450 !important;
+      }
+
+      /* Botón derecho "Aceptar" - Fill amarillo */
+      sb-ui-modal [slot="footer"] .sb-ui-button--primary {
+        background-color: #FFE16F !important;
+        color: #038450 !important;
+        border: 2px solid #FFE16F !important;
+      }
+
+      sb-ui-modal [slot="footer"] .sb-ui-button--primary:hover {
+        background-color: #FFD54F !important;
+        color: #038450 !important;
+        border-color: #FFD54F !important;
+      }
+
+      sb-ui-modal [slot="footer"] .sb-ui-button--primary:active {
+        background-color: #FFC107 !important;
+        color: #038450 !important;
+        border-color: #FFC107 !important;
+      }
+
       /* Sections */
       .matrix-section {
         margin-block-end: 3rem;

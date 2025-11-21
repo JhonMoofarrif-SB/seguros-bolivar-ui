@@ -1092,6 +1092,20 @@
     --sb-ui-button-min-inline-size: clamp(60px, 12vw, 100px);
     --sb-ui-button-min-block-size: clamp(28px, 6vw, 36px);
     --sb-ui-button-gap: clamp(0.2rem, 0.15rem + 0.2vw, 0.4rem);
+    
+    /* Centrado perfecto para iconos en botones small */
+    &.sb-ui-button--icon-left > [class*='fa-']:first-child,
+    &.sb-ui-button--icon-right > [class*='fa-']:last-child {
+      font-size: 14px;
+      inline-size: 14px;
+      block-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      position: relative;
+      inset-block-start: 1px; /* Baja el icono 1px para centrado visual */
+    }
   }
 
   .sb-ui-button--medium {
@@ -1145,6 +1159,16 @@
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
       opacity: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    
+    /* Font Awesome specific - centrado perfecto */
+    & > [class*='fa-']:first-child {
+      line-height: 1;
+      vertical-align: middle;
     }
   }
 
@@ -1162,6 +1186,16 @@
       block-size: clamp(16px, 1.125rem, 20px);
       flex-shrink: 0;
       opacity: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    
+    /* Font Awesome specific - centrado perfecto */
+    & > [class*='fa-']:last-child {
+      line-height: 1;
+      vertical-align: middle;
     }
   }
 
@@ -1196,6 +1230,16 @@
       block-size: 18px;
       flex-shrink: 0;
       opacity: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    
+    /* Font Awesome specific - centrado perfecto */
+    & > [class*='fa-'] {
+      line-height: 1;
+      vertical-align: middle;
     }
 
     /* Small size: 32x32 (icono 14px + padding 9px) */
@@ -1218,6 +1262,16 @@
       & > [class*='icon'] {
         inline-size: 14px;
         block-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+      
+      /* Font Awesome specific - centrado perfecto */
+      & > [class*='fa-'] {
+        line-height: 1;
+        vertical-align: middle;
       }
     }
 
@@ -1241,6 +1295,16 @@
       & > [class*='icon'] {
         inline-size: 22px;
         block-size: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+      
+      /* Font Awesome specific - centrado perfecto */
+      & > [class*='fa-'] {
+        line-height: 1;
+        vertical-align: middle;
       }
     }
   }

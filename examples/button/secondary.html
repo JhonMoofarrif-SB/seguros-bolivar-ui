@@ -225,7 +225,7 @@
         top: 1rem;
         z-index: 100;
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr auto;
         gap: 1.5rem;
         align-items: center;
         margin-block-end: 2rem;
@@ -256,6 +256,7 @@
         gap: 1rem;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       .brand-controls label {
@@ -349,7 +350,7 @@
       <!-- Brand & Theme Controls -->
       <div class="brand-controls">
         <a
-          href="index.html"
+          href="../index.html"
           class="sb-ui-button sb-ui-button--tertiary sb-ui-button--small"
           style="text-decoration: none"
         >

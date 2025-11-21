@@ -27,19 +27,51 @@
 /* ============================================================================
    1. CONFIGURACIÓN GLOBAL (fuera de @layer)
    ============================================================================
-   Propiedades estructurales como padding, border-radius, tamaños
+   Propiedades estructurales comunes a todos los tamaños
    ============================================================================ */
 [data-brand='seguros-bolivar'] .sb-ui-accordion {
-  --sb-ui-accordion-border-radius: 16px;
+  --sb-ui-accordion-border-radius: 8px;
+  --sb-ui-accordion-border-focus-width: 3px;
+}
+
+/* ============================================================================
+   TAMAÑOS ESPECÍFICOS
+   ============================================================================ */
+
+/* SMALL - 40px total */
+[data-brand='seguros-bolivar'] .sb-ui-accordion.sb-ui-accordion--small {
+  --sb-ui-accordion-padding-inline: 16px;
+  --sb-ui-accordion-padding-block: 4px; /* 4px × 2 = 8px total */
+  --sb-ui-accordion-gap: 8px;
+  --sb-ui-accordion-min-block-size: 30px; /* 30px + 8px (padding) + 2px (border) = 40px total */
+  --sb-ui-accordion-content-padding-inline: 16px;
+  --sb-ui-accordion-content-padding-block: 16px;
+  --sb-ui-accordion-icon-size: 18px;
+  --sb-ui-accordion-font-size: 14px;
+}
+
+/* MEDIUM - 48px total (default sin modificador) */
+[data-brand='seguros-bolivar'] .sb-ui-accordion:not(.sb-ui-accordion--small):not(.sb-ui-accordion--large) {
   --sb-ui-accordion-padding-inline: 24px;
-  --sb-ui-accordion-padding-block: 12px;
+  --sb-ui-accordion-padding-block: 4px; /* 4px × 2 = 8px total */
   --sb-ui-accordion-gap: 12px;
-  --sb-ui-accordion-min-block-size: 56px;
+  --sb-ui-accordion-min-block-size: 38px; /* 38px + 8px (padding) + 2px (border) = 48px total */
   --sb-ui-accordion-content-padding-inline: 24px;
   --sb-ui-accordion-content-padding-block: 20px;
-  --sb-ui-accordion-icon-size: 24px;
+  --sb-ui-accordion-icon-size: 22px;
   --sb-ui-accordion-font-size: 16px;
-  --sb-ui-accordion-border-focus-width: 3px;
+}
+
+/* LARGE - 56px total */
+[data-brand='seguros-bolivar'] .sb-ui-accordion.sb-ui-accordion--large {
+  --sb-ui-accordion-padding-inline: 32px;
+  --sb-ui-accordion-padding-block: 6px; /* 6px × 2 = 12px total */
+  --sb-ui-accordion-gap: 16px;
+  --sb-ui-accordion-min-block-size: 42px; /* 42px + 12px (padding) + 2px (border) = 56px total */
+  --sb-ui-accordion-content-padding-inline: 32px;
+  --sb-ui-accordion-content-padding-block: 24px;
+  --sb-ui-accordion-icon-size: 26px;
+  --sb-ui-accordion-font-size: 18px;
 }
 
 /* ============================================================================
@@ -55,21 +87,24 @@
   [data-brand='seguros-bolivar'] .sb-ui-accordion--primary {
     /* Background */
     --sb-ui-accordion-bg-color: var(--sb-ui-color-grayscale-white);
-    --sb-ui-accordion-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-accordion-bg-hover: #FAFAFA;
     --sb-ui-accordion-bg-active: var(--sb-ui-color-secondary-L300);
     --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400);
+    --sb-ui-accordion-bg-expanded: #F2F9F6;
 
     /* Text */
-    --sb-ui-accordion-text-color: var(--sb-ui-color-primary-D100);
-    --sb-ui-accordion-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-color: #757575;
+    --sb-ui-accordion-text-hover: #757575;
     --sb-ui-accordion-text-active: var(--sb-ui-color-primary-D100);
     --sb-ui-accordion-text-disabled: var(--sb-ui-color-grayscale-base);
+    --sb-ui-accordion-text-expanded: var(--sb-ui-color-primary-base);
 
     /* Border */
-    --sb-ui-accordion-border-color: var(--sb-ui-color-primary-base);
-    --sb-ui-accordion-border-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-border-color: #9B9B9B;
+    --sb-ui-accordion-border-hover: #757575;
     --sb-ui-accordion-border-active: var(--sb-ui-color-primary-D200);
     --sb-ui-accordion-border-disabled: var(--sb-ui-color-grayscale-L200);
+    --sb-ui-accordion-border-expanded: var(--sb-ui-color-primary-base);
   }
 
   /* ========================================
@@ -79,21 +114,24 @@
   [data-brand='seguros-bolivar'] .sb-ui-accordion--secondary {
     /* Background */
     --sb-ui-accordion-bg-color: var(--sb-ui-color-grayscale-white);
-    --sb-ui-accordion-bg-hover: var(--sb-ui-color-secondary-L400);
+    --sb-ui-accordion-bg-hover: #FAFAFA;
     --sb-ui-accordion-bg-active: var(--sb-ui-color-secondary-L300);
     --sb-ui-accordion-bg-disabled: var(--sb-ui-color-grayscale-L400);
+    --sb-ui-accordion-bg-expanded: #F2F9F6;
 
     /* Text */
-    --sb-ui-accordion-text-color: var(--sb-ui-color-primary-base);
-    --sb-ui-accordion-text-hover: var(--sb-ui-color-primary-D100);
+    --sb-ui-accordion-text-color: #757575;
+    --sb-ui-accordion-text-hover: #757575;
     --sb-ui-accordion-text-active: var(--sb-ui-color-primary-D100);
     --sb-ui-accordion-text-disabled: var(--sb-ui-color-grayscale-base);
+    --sb-ui-accordion-text-expanded: var(--sb-ui-color-primary-base);
 
     /* Border */
-    --sb-ui-accordion-border-color: var(--sb-ui-color-secondary-base);
-    --sb-ui-accordion-border-hover: var(--sb-ui-color-secondary-D100);
+    --sb-ui-accordion-border-color: #9B9B9B;
+    --sb-ui-accordion-border-hover: #757575;
     --sb-ui-accordion-border-active: var(--sb-ui-color-secondary-D200);
     --sb-ui-accordion-border-disabled: var(--sb-ui-color-grayscale-L200);
+    --sb-ui-accordion-border-expanded: var(--sb-ui-color-primary-base);
   }
 }
 
