@@ -24,9 +24,12 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run clean && pnpm exec turbo run build --force --no-cache && pnpm --filter @seguros-bolivar-ui/bundle run copy:all",
+    "build:storybook": "pnpm run build && pnpm --filter @seguros-bolivar-ui/docs build-storybook",
+    "build:site": "pnpm run build && pnpm run build:storybook && node scripts/build-site.js",
     "check": "pnpm run lint  --fix && pnpm run format:check && pnpm run test",
-    "clean": "pnpm exec turbo run clean && rm -rf .turbo node_modules/.cache examples/dist/*.min.* packages/docs/.storybook/*.min.css",
+    "clean": "pnpm exec turbo run clean && rm -rf .turbo node_modules/.cache examples/dist/*.min.* packages/docs/.storybook/*.min.css docs/",
     "demo": "pnpm run build && cd examples && npx serve -p 3000",
+    "deploy": "pnpm run build:site && node scripts/deploy-gh-pages.js",
     "dev": "./scripts/dev.sh",
     "dev:bundle": "pnpm --filter @seguros-bolivar-ui/bundle dev",
     "dev:demo": "pnpm run build && cd examples && npx serve -p 3000",

@@ -1,0 +1,31 @@
+# Archivos de desarrollo
+src/
+tsconfig.json
+.turbo/
+.vscode/
+node_modules/
+
+# Tests
+*.test.ts
+*.spec.ts
+__tests__/
+coverage/
+
+# Build artifacts que no son necesarios
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Documentación de desarrollo
+docs/
+examples/
+
+# Solo incluir dist/ y archivos específicos
+# (los archivos a incluir están en "files" del package.json)
+

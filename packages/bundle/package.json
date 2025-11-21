@@ -1,9 +1,24 @@
 {
-  "name": "@seguros-bolivar-ui/bundle",
+  "name": "@seguros-bolivar/ui-bundle",
   "version": "1.0.0",
-  "description": "CDN bundle generator para Seguros Bolivar UI Design System",
+  "description": "Seguros Bolivar UI Design System - Multi-brand CSS & Web Components Bundle for CDN",
   "type": "module",
-  "private": true,
+  "private": false,
+  "main": "./dist/sb-ui-seguros-bolivar-light.min.css",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist/**/*.css",
+    "dist/**/*.js",
+    "dist/**/*.map",
+    "dist/**/*.gz",
+    "dist/**/*.br",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsx src/builder.ts",
     "build:copy": "pnpm run build && pnpm run copy:all",
@@ -12,14 +27,42 @@
     "copy:storybook": "mkdir -p ../docs/.storybook && cp dist/sb-ui-*.min.css ../docs/.storybook/ 2>/dev/null || true && echo '✅ Archivos CSS copiados a Storybook'",
     "dev": "tsx watch src/builder.ts",
     "clean": "rm -rf dist",
-    "serve": "npx serve dist -p 3000"
+    "serve": "npx serve dist -p 3000",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "publish:dry": "npm publish --dry-run",
+    "publish:public": "npm publish --access public"
   },
   "keywords": [
+    "design-system",
+    "seguros-bolivar",
+    "multi-brand",
+    "css",
+    "web-components",
+    "ui-components",
     "cdn",
     "bundle",
-    "design-system"
+    "lit",
+    "atomic-design",
+    "design-tokens",
+    "responsive",
+    "accessibility",
+    "dark-mode",
+    "colombia"
   ],
-  "author": "Seguros Bolivar UI",
+  "homepage": "https://github.com/seguros-bolivar/bolivar-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seguros-bolivar/bolivar-ui.git",
+    "directory": "packages/bundle"
+  },
+  "bugs": {
+    "url": "https://github.com/seguros-bolivar/bolivar-ui/issues"
+  },
+  "author": {
+    "name": "Seguros Bolivar UI Team",
+    "email": "ui-team@segurosbolivar.com",
+    "url": "https://www.segurosbolivar.com"
+  },
   "license": "MIT",
   "dependencies": {
     "@seguros-bolivar-ui/atoms": "workspace:*",
